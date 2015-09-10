@@ -15,6 +15,7 @@ class unCMSplus{
 		$this->base_url = $base;
 	}
 
+	//buscamos los archivos del tema
 	function cargarTema(){
 		$ruta = './' . $this->tema_elegido . '/plantilla.html';
 		if(file_exists($ruta)){
@@ -30,23 +31,28 @@ class unCMSplus{
 		$this->contenido = fread($plantilla, filesize($ruta.'/plantilla.html'));
 	}
 
+	//definimos valores como titulo y descripcion
 	function definirHead($titulo, $descripcion){
 		$this->titulo = $titulo;
 		$this->descripcion = $descripcion;
 	}
 
+	//definimos el valor del lema
 	function definePagina($lema){
 		$this->lema = $lema;
 	}
 
+	//definimos valor para el footer
 	function definirFooter($texto){
 		$this->textoFooter = $texto;
 	}
 
+	//mostramos todo el resultado
 	function mostrarTodo(){
 		echo $this->contenido;
 	}
 
+	//preparamos la cabecera head
 	function prepararHead(){
 		$this->contenido = str_replace('{plus:title blog}', 'Index', $this->contenido);
 		$this->contenido = str_replace('{plus:title pagina}', $this->titulo, $this->contenido); //{plus:tema ruta}
@@ -55,9 +61,10 @@ class unCMSplus{
 		$this->contenido = str_replace('{plus:descripcion}', $this->descripcion, $this->contenido);
 	}
 
+	//preparamos el valor lema y footer
 	function prepararPagina(){
 		$this->contenido = str_replace('{plus:lema}', $this->lema, $this->contenido);
-		$this->contenido = str_replace('{plus:footer}', $this->lema, $this->contenido);
+		$this->contenido = str_replace('{plus:footer}', $this->textoFooter, $this->contenido);
 	}
 
 
