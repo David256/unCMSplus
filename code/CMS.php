@@ -29,6 +29,7 @@ class unCMSplus{
 		$plantilla = fopen($ruta . '/plantilla.html', 'r');
 
 		$this->contenido = fread($plantilla, filesize($ruta.'/plantilla.html'));
+		fclose($plantilla);
 	}
 
 	//definimos valores como titulo y descripcion
@@ -65,6 +66,40 @@ class unCMSplus{
 	function prepararPagina(){
 		$this->contenido = str_replace('{plus:lema}', $this->lema, $this->contenido);
 		$this->contenido = str_replace('{plus:footer}', $this->textoFooter, $this->contenido);
+	}
+
+	//carga el blog especifico
+	function cargarBlog($ruta){
+		$lugarInicio = strpos($this->contenido, '{plus:section si lobby}');
+		$lugarElse = strpos($this->contenido, '{plus:section otro}');
+		$tamano = strlen($this->contenido);
+		$extracto = substr($this->contenido, $lugarInicio, $lugarElse - $lugarInicio);
+
+		//cargamos el blog
+		$direccion = './blog/' . $ruta . '.html';
+		$elBlog = '';
+		if(file_exists($direccion)){
+			$handleBlog = fopen($direccion, 'r');
+			$contenido = fread($handleBlog, filesize($direccion));
+			fclose($handleBlog);
+			$elBlog = $contenido;
+		}else{
+			$elBlog = 'página no encontrada :( ';
+		}
+		
+		//mejoramos el extracto
+		$extracto = str_replace('{plus:articulo titulo}', 'Un blog más', $extracto); //por ahora
+		$extracto = str_replace('{plus:article contenido}', $elBlog, $extracto);
+
+		//guardamos todo
+		$lugarInicio = strpos($this->contenido, '{plus:section si lobby}');
+		$lugarFin = strpos($this->contenido, '{plus:section fin si}');
+		$this->contenido = $extracto;
+	}
+
+	//cargamos todos los blogs
+	function cargarTodo(){
+
 	}
 
 
