@@ -11,58 +11,58 @@
 	<header></header>
 	<nav>
 		<ul>
-			{*plus:nav inicio*}
-			<li><menu><a href="{*plus:nav destino*}">{*plus:nav item*}</a></menu></li>
-			{*plus:nav fin*}
+			{plus:nav inicio}
+			<li><menu><a href="{plus:nav destino}">{plus:nav item}</a></menu></li>
+			{plus:nav fin}
 		</ul>
 	</nav>
 	<section>
-		{*plus:section si lobby*}
+		{plus:section si lobby}
 		<article>
-			<h2>{*plus:articulo titulo*}</h2>
+			<h2>{plus:articulo titulo}</h2>
 			<br><br>
 			<div class="hoja">
-				{*plus:article contenido*}
+				{plus:article contenido}
 			</div>
 			<br>
-			<div class="vermas"><a href="{*plus:article vermas url*}">{*plus:article vermas texto*}</a></div>
+			<div class="vermas"><a href="{plus:article vermas url}">{plus:article vermas texto}</a></div>
 			<div class="footer">
-				{*plus:article autor*}
+				{plus:article autor}
 				<br>
-				{*plus:article fecha*}
+				{plus:article fecha}
 			</div>
 		</article>
 		<hr>
-		{*plus:section otro*}
+		{plus:section otro}
 		<article>
-			<h2>{*plus:articulo titulo*}</h2>
+			<h2>{plus:articulo titulo}</h2>
 			<br><br>
 			<div class="hoja">
-				{*plus:article contenido*}
+				{plus:article contenido}
 			</div>
 			<br>
-			<div class="vermas"><a href="{*plus:article vermas url*}">{*plus:article vermas texto*}</a></div>
+			<div class="vermas"><a href="{plus:article vermas url}">{plus:article vermas texto}</a></div>
 			<div class="footer">
-				{*plus:article autor*}
+				{plus:article autor}
 				<br>
-				{*plus:article fecha*}
+				{plus:article fecha}
 			</div>
 		</article>
 		<div id="comentarios">
-			{*plus:comentario autor*}: {*plus:comentario: texto*},{*plus:comentario fecha*}
+			{plus:comentario autor}: {plus:comentario: texto},{plus:comentario fecha}
 		</div>
-		{*plus:section fin si*}
+		{plus:section fin si}
 	</section>
 	<aside>
-		{*plus:aside bucle*}
+		{plus:aside bucle}
 		<p>
-			{*plus:aside contenido*}
+			{plus:aside contenido}
 		</p>
 		<hr>
-		{*plus:aside giro*}
+		{plus:aside giro}
 	</aside>
 	<footer>
-		<p>{*plus:footer*}</p>
+		<p>{plus:footer}</p>
 	</footer>
 </body>
 </html>
