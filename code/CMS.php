@@ -71,7 +71,7 @@ class unCMSplus{
 	//carga el blog especifico
 	function cargarBlog($ruta){
 		$lugarInicio = strpos($this->contenido, '{plus:section otro}') + strlen('{plus:section otro}');
-		$lugarSiFin = strpos($this->contenido, '{plus:section fin si}') - strlen('{plus:section fin si}');
+		$lugarSiFin = strpos($this->contenido, '{plus:section fin si}');
 		$tamano = strlen($this->contenido);
 		$extracto = substr($this->contenido, $lugarInicio, $lugarSiFin - $lugarInicio);
 
