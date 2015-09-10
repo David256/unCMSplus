@@ -1,1 +1,21 @@
-s
+body{
+	background: #212121;
+	color: #fff;
+	font-size: verdana;
+}
+header h1{
+	color: yellow;
+	text-decoration: underline;
+}
+header small{
+	color: #777;
+}
+section{
+	display: block;
+	margin: 1em auto;
+	max-width: 1000px;
+}
+article{
+	border: 1px dashed #666;
+	margin-bottom: 1em;
+}
