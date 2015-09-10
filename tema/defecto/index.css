@@ -1,21 +1,42 @@
 body{
 	background: #212121;
 	color: #fff;
-	font-size: verdana;
+	font-family: verdana;
+}
+header{
+	padding: 1em;
+	border-bottom: 1px solid rgba(255,255,0,0,4);
 }
 header h1{
-	color: yellow;
-	text-decoration: underline;
+	color: rgba(34,56,123,0.9);
+	font-size: 3em;
 }
 header small{
 	color: #777;
+}
+nav{
+	display: block;
+	border: 1px solid rgba(255,255,255,0.4);
+	margin: 0.5em;
 }
 section{
 	display: block;
 	margin: 1em auto;
 	max-width: 1000px;
+	background: white;
+	color: black;
+	padding: 1em;
+	border-radius: 0.4em;
 }
 article{
-	border: 1px dashed #666;
+	border: 1px dashed rgba(6,6,6,0.3);
+	padding: 0.3em;
 	margin-bottom: 1em;
+}
+footer{
+	text-align: center;
+	color: white;
+	background: black;
+	padding: 1em;
+	bottom: 0px;
 }

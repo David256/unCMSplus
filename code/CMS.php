@@ -70,10 +70,10 @@ class unCMSplus{
 
 	//carga el blog especifico
 	function cargarBlog($ruta){
-		$lugarInicio = strpos($this->contenido, '{plus:section si lobby}');
-		$lugarElse = strpos($this->contenido, '{plus:section otro}');
+		$lugarInicio = strpos($this->contenido, '{plus:section otro}') + strlen('{plus:section otro}');
+		$lugarSiFin = strpos($this->contenido, '{plus:section fin si}') - strlen('{plus:section fin si}');
 		$tamano = strlen($this->contenido);
-		$extracto = substr($this->contenido, $lugarInicio, $lugarElse - $lugarInicio);
+		$extracto = substr($this->contenido, $lugarInicio, $lugarSiFin - $lugarInicio);
 
 		//cargamos el blog
 		$direccion = './blog/' . $ruta . '.html';
@@ -93,8 +93,11 @@ class unCMSplus{
 
 		//guardamos todo
 		$lugarInicio = strpos($this->contenido, '{plus:section si lobby}');
-		$lugarFin = strpos($this->contenido, '{plus:section fin si}');
-		$this->contenido = $extracto;
+		$lugarFin = strpos($this->contenido, '{plus:section fin si}') + strlen('{plus:section fin si}');
+		//desde inicio hasta lugarInicio y desde lugarFin todo el resto de documento
+		$parteA = substr($this->contenido, 0, $lugarInicio);
+		$parteB = substr($this->contenido, $lugarFin);
+		$this->contenido = $parteA . $extracto . $parteB;
 	}
 
 	//cargamos todos los blogs
