@@ -8,6 +8,7 @@ class unCMSplus{
 	private $titulo;
 	private $descripcion;
 	private $lema;
+	private $textoFooter;
 
 	function __construct($ruta, $base){
 		$this->tema_elegido = $ruta;
@@ -38,6 +39,10 @@ class unCMSplus{
 		$this->lema = $lema;
 	}
 
+	function definirFooter($texto){
+		$this->textoFooter = $texto;
+	}
+
 	function mostrarTodo(){
 		echo $this->contenido;
 	}
@@ -51,7 +56,8 @@ class unCMSplus{
 	}
 
 	function prepararPagina(){
-		$this->contenido = str_replace('{plus:title blog}', 'Index', $this->contenido);
+		$this->contenido = str_replace('{plus:lema}', $this->lema, $this->contenido);
+		$this->contenido = str_replace('{plus:footer}', $this->lema, $this->contenido);
 	}
 
 
