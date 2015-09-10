@@ -1,1 +1,6 @@
-s
+<?php 
+
+
+header("location: ../index.php");
+
+ ?>
