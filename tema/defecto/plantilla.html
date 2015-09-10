@@ -2,13 +2,16 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<title></title>
-	<meta name="Description" content="Texto que describe el contenido de la pagina">
+	<title>{plus:title blog} - {plus:title pagina}</title>
+	<meta name="Description" content="{plus:descripcion}">
 	<script type="text/javascript" src="index.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<header></header>
+	<header>
+		<h1>{plus:title pagina}</h1>
+		<small>{plus:lema}</small>
+	</header>
 	<nav>
 		<ul>
 			{plus:nav inicio}
